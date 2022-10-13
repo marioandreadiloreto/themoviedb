@@ -1,0 +1,126 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended"
+    ],
+    "settings": {
+      "react": {
+        "createClass": "createReactClass",
+        "pragma": "React",
+        "version": "detect",
+        "flowVersion": "0.53"
+      },
+      "propWrapperFunctions": [
+        "forbidExtraProps",
+        {
+          "property": "freeze",
+          "object": "Object"
+        },
+        {
+          "property": "myFavoriteWrapper"
+        }
+      ],
+      "linkComponents": [
+        "Hyperlink",
+        {
+          "name": "Link",
+          "linkAttribute": "to"
+        }
+      ]
+    },
+    "rules": {
+      "indent": [
+        "error",
+        2
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "double"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "max-len": [
+        "error",
+        200
+      ],
+      "no-trailing-spaces": [
+        2
+      ],
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 1,
+          "maxEOF": 0
+        }
+      ],
+      "eol-last": [
+        "error",
+        "always"
+      ],
+      "comma-dangle": [
+        "error",
+        {
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "imports": "always-multiline",
+          "exports": "always-multiline",
+          "functions": "always-multiline"
+        }
+      ],
+      "react/no-unused-prop-types": [
+        2
+      ],
+      "react/jsx-props-no-multi-spaces": [
+        "error"
+      ],
+      "react/jsx-equals-spacing": [
+        "error",
+        "never"
+      ],
+      "react/jsx-closing-bracket-location": [
+        "error"
+      ],
+      "react/jsx-indent": [
+        "error",
+        2
+      ],
+      "react/jsx-wrap-multilines": [
+        "error",
+        {
+          "declaration": "parens",
+          "assignment": "parens",
+          "return": "parens-new-line",
+          "arrow": "parens",
+          "condition": "ignore",
+          "logical": "ignore",
+          "prop": "ignore"
+        }
+      ],
+      "@typescript-eslint/camelcase": [
+        0
+      ],
+      "react/prop-types": [
+        0
+      ]
+    }
+  }

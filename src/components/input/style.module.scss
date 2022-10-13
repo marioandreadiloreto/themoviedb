@@ -1,0 +1,23 @@
+.wrapper {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper input {
+  padding: 1rem;
+  border: solid 1px #d0d0d0;
+  color: #111111;
+  font-family: "Open Sans";
+  font-size: 1.25rem;
+  display: block;
+  background-color: #f6f6f6;
+  border-radius: 3px;
+  width: 50%;
+}
+
+.wrapper input:focus, .wrapper input:active {
+  box-shadow: 0 0 0 2px #0033dd44;
+  outline: none;
+}
