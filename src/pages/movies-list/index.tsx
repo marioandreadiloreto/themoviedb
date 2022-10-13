@@ -1,5 +1,5 @@
 import Main from "./components/main";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { discover, searchMovie } from "../../utils/networking";
 import { Movie, MovieResponse } from "../../types";
 

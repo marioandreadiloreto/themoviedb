@@ -17,6 +17,7 @@ interface Props{
 const Main = (props: Props): JSX.Element => (
   <div className={style.wrapper}>
     <Input
+      testId="search-bar"
       id="1"
       placeholder="Find a movie"
       onChange={props.onChangeText}

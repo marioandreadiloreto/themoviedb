@@ -6,11 +6,13 @@ const keyValueQuery = {
   discover: "discover/movie",
 };
 
-const buildUrl = (url: string, params?: any) => {
+export const buildUrl = (url: string, params?: any, includeApiKey = true) => {
 
-  let fullParams:any = {
-    api_key: process.env.REACT_APP_API_KEY,
-  };
+  let fullParams:any = {};
+
+  if(includeApiKey){
+    fullParams.api_key = process.env.REACT_APP_API_KEY;
+  }
 
   const fullUrl = `${process.env.REACT_APP_BACKEND_URL}${url}`;
   if (params) {

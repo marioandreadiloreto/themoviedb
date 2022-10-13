@@ -30,3 +30,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 `yarn lint`
 
 Performs the linting of the whole project.
+
+`yarn test`
+
+Performs the unit tests.
