@@ -14,18 +14,21 @@ const MoviesList = (): JSX.Element => {
 
   const fetchData = async (query: string, page: number): Promise<void> => {
     //when the page loads it shows the latest releases
-    // let result: any;
     let result: MovieResponse;
     if (!query) {
       result = await discover(page);
     } else {
       result = await searchMovie(query, page);
     }
+    if(result.results.length > 0) {
+      setCurrentPage(page);
+    }
 
     if (page == 1) {
       setList(result.results);
       setTotPages(result.total_pages);
     } else {
+
       setList((state: Movie[]) => [...state, ...result.results]);
       setTotPages(result.total_pages);
 
@@ -69,9 +72,7 @@ const MoviesList = (): JSX.Element => {
 
   const onClickNext = (): void => {
 
-    const updatedPage = currentPage + 1;
-    setCurrentPage(updatedPage);
-    fetchData(text, updatedPage);
+    fetchData(text, currentPage + 1);
   };
 
   return (
