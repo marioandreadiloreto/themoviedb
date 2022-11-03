@@ -5,7 +5,6 @@ import { Movie, MovieResponse } from "../../types";
 
 const MoviesList = (): JSX.Element => {
 
-  // const [list, setList] = useState<any>(undefined);
   const [list, setList] = useState<Array<Movie>>([]);
   const [totPages, setTotPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,6 +19,8 @@ const MoviesList = (): JSX.Element => {
     } else {
       result = await searchMovie(query, page);
     }
+
+    //increase page number only if the response has some Movies
     if(result.results.length > 0) {
       setCurrentPage(page);
     }
@@ -74,6 +75,30 @@ const MoviesList = (): JSX.Element => {
 
     fetchData(text, currentPage + 1);
   };
+
+  //Infinite scroll
+
+  const handleScroll = () => {
+
+    const bottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight;
+
+    if (bottom) {
+      fetchData(text, currentPage + 1);
+
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
+
+  //End infinite scroll
 
   return (
     <Main
